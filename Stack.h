@@ -23,11 +23,12 @@ class Stack
 		topIndex = empty;
 	} 
 
-	Stack(int maxSizeStack) : Stack()
+	Stack(int maxSizeStack) 
 	{
 		full = maxSizeStack-1;
 		data = new T_arr[maxSizeStack - 1];
-		
+		empty = -1;
+		topIndex = full-1;
 	}
 	
 	~Stack() {
