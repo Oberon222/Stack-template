@@ -26,9 +26,9 @@ class Stack
 	Stack(int maxSizeStack) 
 	{
 		full = maxSizeStack-1;
-		data = new T_arr[maxSizeStack - 1];
+		data = new T_arr[maxSizeStack];
 		empty = -1;
-		topIndex = full-1;
+		topIndex = empty;
 	}
 	
 	~Stack() {
@@ -40,7 +40,7 @@ class Stack
 	T_arr Pop();	// вилучення елементів
 
 
-	int Peek()const;   // повертає останній елемент 
+	T_arr Peek()const;   // повертає останній елемент 
 
 	int GetCount()const; 	// кількість елементів в стеку
 
@@ -71,11 +71,10 @@ inline T_arr Stack<T_arr>::Pop()
 }
 
 template<class T_arr>
-inline int Stack<T_arr>::Peek() const
+inline T_arr Stack<T_arr>::Peek() const
 {
-	if (!IsEmpty()) {
-	return  data[topIndex];
-	}
+	if (!IsEmpty()) return  data[topIndex];
+	
 	return 0;
 }
 
@@ -88,7 +87,7 @@ inline int Stack<T_arr>::GetCount() const
 template<class T_arr>
 inline bool Stack<T_arr>::IsEmpty() const
 {
-	return topIndex == empty;
+	return data[topIndex];
 }
 
 template<class T_arr>
